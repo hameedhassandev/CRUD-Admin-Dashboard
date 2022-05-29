@@ -1,0 +1,66 @@
+﻿@model AdminDashboard.Models.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<h4>Product</h4>
+<hr />
+<div class="row">
+
+    <div class="col-6">
+        <div>
+
+            <dl class="row">
+                <dt class="col-sm-4">
+                    ID
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Id)
+                </dd>
+                <dt class="col-sm-4">
+                    Product Name
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.product_name)
+                </dd>
+                <dt class="col-sm-4">
+                    Product Description
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.product_Description)
+                </dd>
+                <dt class="col-sm-4">
+                    Product Price(L.E)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.product_price)
+                </dd>
+                <dt class="col-sm-4">
+                    Category
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.category.category_name)
+                </dd>
+
+
+
+            </dl>
+        </div>
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-success">Edit</a>
+            <a asp-action="Index" class="btn btn-outline-info">Back to List</a>
+        </div>
+    </div>
+    <div class="col-6">
+        @if (Model.imageURL != null)
+        {
+            <img src="~/upload/@Model.imageURL" alt="prod_img" style="width:100%;height:100%" class="img-thumbnail">
+        }
+        else
+        {
+        <img src="~/upload/defult.png" alt="prod_img" style="width:100%;height:100%" class="img-thumbnail">
+        }
+    </div>
+</div>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<AdminDashboard.Models.Category>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Categories</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-info">Create New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                Category Name
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.category_Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category_name)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.category_Id" class="btn btn-success">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.category_Id" class="btn btn-info">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.category_Id" class="btn btn-danger">Delete</a>
+             
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

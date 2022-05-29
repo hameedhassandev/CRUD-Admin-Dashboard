@@ -1,0 +1,75 @@
+﻿@model IEnumerable<AdminDashboard.Models.Product>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Products</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-info">Create New</a>
+</p>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th> 
+            <th>
+                Product Name
+            </th>
+            <th>
+                Produc Description
+            </th>
+            <th>
+                Product Price(L.E)
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Product Image
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category.category_name)
+            </td>
+            <td>
+                @if (item.imageURL != null)
+                {
+                    <img src="~/upload/@item.imageURL" alt="prod_img" style="width:100px;height:100px" class="img-thumbnail">
+                }
+                else
+                {
+                <img src="~/upload/defult.png" alt="defult_img" style="width:100px;height:100px" class="img-thumbnail">
+                }
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Edit</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
