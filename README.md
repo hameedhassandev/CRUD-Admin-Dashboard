@@ -1,3 +1,2 @@
-# Simple-Admin-Dashboard
-# Simple-Admin-Dashboard
-# CRUD-Admin-Dashboard
+# Simple CRUD Admin dashboard
+using .NET Core and entity framework core
