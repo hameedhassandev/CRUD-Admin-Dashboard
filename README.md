@@ -1,3 +1,2 @@
-# CRUD-Admin-Dashboard
-simple CRUD operation (admindashboard) using .NET Core and Entity framework core
-also use Repository design pattern
+# CRUD (Categories, Products)
+CRUD operation (Categories, Products) using .NET Core and Entity framework core also use Repository design pattern
